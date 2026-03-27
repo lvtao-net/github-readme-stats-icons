@@ -2,7 +2,9 @@
 
 ⚡ 动态生成GitHub统计数据卡片的Go语言实现
 
-![预览](./demo.jpg)
+**在线预览**: [https://readme.lvtao.net](https://readme.lvtao.net)
+
+![demo](./demo.jpg)
 
 项目地址：https://github.com/lvtao-net/github-readme-stats-icons.git
 
