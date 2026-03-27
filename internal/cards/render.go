@@ -22,6 +22,7 @@ type StatsCardOptions struct {
 	Theme             themes.Theme
 	CustomTitle       string
 	CardWidth         int
+	CardHeight        int
 	HideBorder        bool
 	BorderRadius      float64
 	LineHeight        int
@@ -76,22 +77,27 @@ func RenderStatsCard(stats *github.UserStats, contributions map[string]int, opti
 		cardWidth = 495
 	}
 	
-	// Calculate height based on visible items
+	// Calculate visible count first (needed for both height calculation and rank circle position)
 	visibleCount := 0
 	for _, d := range data {
 		if d.Show {
 			visibleCount++
 		}
 	}
-	// Calculate height: title(55) + items + padding(30)
-	height := 85 + visibleCount*options.LineHeight
-	if !options.HideRank {
-		// When showing rank circle, need more height
-		height = 200
-	}
-	// Ensure minimum height
-	if height < 120 {
-		height = 120
+	
+	// Calculate height: use custom height if specified, otherwise auto-calculate
+	height := options.CardHeight
+	if height == 0 {
+		// Calculate height: title(55) + items + padding(30)
+		height = 85 + visibleCount*options.LineHeight
+		if !options.HideRank {
+			// When showing rank circle, need more height
+			height = 180
+		}
+		// Ensure minimum height
+		if height < 120 {
+			height = 120
+		}
 	}
 	
 	title := options.CustomTitle
@@ -243,6 +249,7 @@ type LangsCardOptions struct {
 	Theme             themes.Theme
 	CustomTitle       string
 	CardWidth         int
+	CardHeight        int
 	HideBorder        bool
 	BorderRadius      float64
 	Layout            string // normal, compact, donut, donut-vertical, pie
@@ -314,7 +321,11 @@ func RenderTopLangsCard(languages map[string]*github.LanguageStats, options Lang
 		cardWidth = 300
 	}
 	
-	height := 200
+	// Use custom height if specified, otherwise use default
+	height := options.CardHeight
+	if height == 0 {
+		height = 180
+	}
 	title := options.CustomTitle
 	if title == "" {
 		title = "Most Used Languages"

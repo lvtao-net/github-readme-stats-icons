@@ -281,6 +281,14 @@
                             <option value="dracula">dracula</option>
                         </select>
                     </div>
+                    <div class="control-group">
+                        <label>卡片宽度 (px, 0为自动)</label>
+                        <input type="number" id="cardWidth" value="0" min="0" max="800">
+                    </div>
+                    <div class="control-group">
+                        <label>卡片高度 (px, 0为自动)</label>
+                        <input type="number" id="cardHeight" value="0" min="0" max="600">
+                    </div>
                 </div>
             </div>
             
@@ -494,6 +502,8 @@
                 showIcons: document.getElementById('showIcons').checked,
                 hideBorder: document.getElementById('hideBorder').checked,
                 hideRank: document.getElementById('hideRank').checked,
+                cardWidth: parseInt(document.getElementById('cardWidth').value) || 0,
+                cardHeight: parseInt(document.getElementById('cardHeight').value) || 0,
                 langsLayout: document.getElementById('langsLayout').value,
                 langsCount: document.getElementById('langsCount').value,
                 iconsTheme: document.getElementById('iconsTheme').value,
@@ -514,6 +524,8 @@
             if (p.showIcons) url += `&show_icons=true`;
             if (p.hideBorder) url += `&hide_border=true`;
             if (p.hideRank) url += `&hide_rank=true`;
+            if (p.cardWidth > 0) url += `&card_width=${p.cardWidth}`;
+            if (p.cardHeight > 0) url += `&card_height=${p.cardHeight}`;
             url += `&_=${Date.now()}`;
             
             document.getElementById('statsPreview').src = url;
@@ -527,6 +539,8 @@
             if (p.theme !== 'default') url += `&theme=${p.theme}`;
             if (p.langsCount != 5) url += `&langs_count=${p.langsCount}`;
             if (p.hideBorder) url += `&hide_border=true`;
+            if (p.cardWidth > 0) url += `&card_width=${p.cardWidth}`;
+            if (p.cardHeight > 0) url += `&card_height=${p.cardHeight}`;
             url += `&_=${Date.now()}`;
             
             document.getElementById('langsPreview').src = url;
