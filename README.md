@@ -2,6 +2,8 @@
 
 ⚡ 动态生成GitHub统计数据卡片的Go语言实现
 
+![预览](./demo.jpg)
+
 项目地址：https://github.com/lvtao-net/github-readme-stats-icons.git
 
 这是一个用Go语言重写的 [github-readme-stats](https://github.com/anuraghazra/github-readme-stats) 项目，完整复刻了原项目的所有功能，并额外集成了 [skill-icons](https://github.com/tandpfun/skill-icons) 的图标功能。

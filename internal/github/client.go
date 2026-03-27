@@ -285,32 +285,6 @@ func (c *Client) GetLanguages(username string, excludeRepos []string) (map[strin
 	return languages, nil
 }
 
-// GraphQLResponse for contributions
-const contributionsQuery = `
-query($login: String!) {
-	user(login: $login) {
-		contributionsCollection {
-			totalCommitContributions
-			totalPullRequestContributions
-			totalIssueContributions
-			totalRepositoryContributions
-			pullRequestReviewContributions {
-				totalCount
-			}
-		}
-		discussionsStarted: repositoryDiscussions {
-			totalCount
-		}
-		discussionsAnswered: repositoryDiscussionComments(onlyAnswers: true) {
-			totalCount
-		}
-		pullRequests(states: MERGED) {
-			totalCount
-		}
-	}
-}
-`
-
 // GetContributions fetches user contributions using GraphQL
 func (c *Client) GetContributions(username string) (map[string]int, error) {
 	// For now, return mock data since GraphQL requires different handling
@@ -390,8 +364,9 @@ func (c *Client) GetStarredRepos(username string) (int, error) {
 					if end != -1 {
 						pageStr := part[start+5 : start+end]
 						var count int
-						fmt.Sscanf(pageStr, "%d", &count)
-						return count, nil
+						if _, err := fmt.Sscanf(pageStr, "%d", &count); err == nil {
+							return count, nil
+						}
 					}
 				}
 			}

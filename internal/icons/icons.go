@@ -126,12 +126,11 @@ func (m *Manager) loadIcons(assetsPath string) {
 		lowerName := strings.ToLower(name)
 
 		// Check if this is a themed icon (has -light or -dark suffix)
-		baseName := lowerName
 		if strings.HasSuffix(lowerName, "-light") {
-			baseName = strings.TrimSuffix(lowerName, "-light")
+			baseName := strings.TrimSuffix(lowerName, "-light")
 			m.themedIcons[baseName] = true
 		} else if strings.HasSuffix(lowerName, "-dark") {
-			baseName = strings.TrimSuffix(lowerName, "-dark")
+			baseName := strings.TrimSuffix(lowerName, "-dark")
 			m.themedIcons[baseName] = true
 		}
 
@@ -248,8 +247,7 @@ func (m *Manager) GenerateSVG(iconNames []string, theme string, perLine int) str
 		perLine = 50
 	}
 
-	// Icon size (48x48 like skillicons)
-	const iconSize = 48
+	// Gap between icons (like skillicons)
 	const gap = 10
 	// Source icon coordinate system (256x256 like skillicons)
 	const sourceSize = 256

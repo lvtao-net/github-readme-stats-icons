@@ -591,7 +591,7 @@ func RenderRepoCard(repo *github.Repository, options RepoCardOptions) string {
 		cardWidth-1, height-1, options.BorderRadius, bgColor, borderProps))
 	
 	// Repo icon
-	sb.WriteString(fmt.Sprintf(`<g transform="translate(25, 30)">`))
+	sb.WriteString(`<g transform="translate(25, 30)">`)
 	sb.WriteString(getRepoIcon(options.Theme.TextColor))
 	sb.WriteString(`</g>`)
 	
