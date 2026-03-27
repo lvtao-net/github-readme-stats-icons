@@ -1,0 +1,1499 @@
+{
+  "icons": [
+    {
+      "name": "ableton",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "activitypub",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "actix",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "adonis",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "aftereffects",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "ae"
+    },
+    {
+      "name": "aiscript",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "alpinejs",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "anaconda",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "androidstudio",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "angular",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "angular"
+    },
+    {
+      "name": "ansible",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "apollo",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "apple",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "appwrite",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "arch",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "arduino",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "astro",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "atom",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "audition",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "au"
+    },
+    {
+      "name": "autocad",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "aws",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "aws"
+    },
+    {
+      "name": "azul",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "azure",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "babel",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "bash",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "bevy",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "bitbucket",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "blender",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "bootstrap",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "bsd",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "bun",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "c",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "c"
+    },
+    {
+      "name": "cassandra",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "clion",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "clojure",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "cloudflare",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "cf"
+    },
+    {
+      "name": "cmake",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "codepen",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "coffeescript",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "cpp",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "cpp"
+    },
+    {
+      "name": "crystal",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "cs",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "cs"
+    },
+    {
+      "name": "css",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "css"
+    },
+    {
+      "name": "cypress",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "d3",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "dart",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "debian",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "deno",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "devto",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "discord",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "discordbots",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "bots"
+    },
+    {
+      "name": "discordjs",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "django",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "docker",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "docker"
+    },
+    {
+      "name": "dotnet",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "net"
+    },
+    {
+      "name": "dynamodb",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "eclipse",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "elasticsearch",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "electron",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "elixir",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "elysia",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "emacs",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "ember",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "emotion",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "expressjs",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "express"
+    },
+    {
+      "name": "fastapi",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "fediverse",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "figma",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "firebase",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "flask",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "flutter",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "forth",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "fortran",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "gamemakerstudio",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "gatsby",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "gatsbyjs"
+    },
+    {
+      "name": "gcp",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "gcp"
+    },
+    {
+      "name": "gherkin",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "git",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "git"
+    },
+    {
+      "name": "github",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "githubactions",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "ghactions"
+    },
+    {
+      "name": "gitlab",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "gmail",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "godot",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "golang",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "go"
+    },
+    {
+      "name": "gradle",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "grafana",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "graphql",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "gql"
+    },
+    {
+      "name": "gtk",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "gulp",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "haskell",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "haxe",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "haxeflixel",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "heroku",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "hibernate",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "html",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "html"
+    },
+    {
+      "name": "htmx",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "idea",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "illustrator",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "ai"
+    },
+    {
+      "name": "instagram",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "ipfs",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "java",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "java"
+    },
+    {
+      "name": "javascript",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "js"
+    },
+    {
+      "name": "jenkins",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "jest",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "jquery",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "julia",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "kafka",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "kali",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "kotlin",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "kotlin"
+    },
+    {
+      "name": "ktor",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "ktorio"
+    },
+    {
+      "name": "kubernetes",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "k8s"
+    },
+    {
+      "name": "laravel",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "laravel"
+    },
+    {
+      "name": "latex",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "less",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "linkedin",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "linux",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "linux"
+    },
+    {
+      "name": "lit",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "lua",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "markdown",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "md"
+    },
+    {
+      "name": "mastodon",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "materialui",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "mui"
+    },
+    {
+      "name": "matlab",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "maven",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "mint",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "misskey",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "mongodb",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "mongo"
+    },
+    {
+      "name": "mysql",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "mysql"
+    },
+    {
+      "name": "neovim",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "nestjs",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "nest"
+    },
+    {
+      "name": "netlify",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "nextjs",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "next"
+    },
+    {
+      "name": "nginx",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "nginx"
+    },
+    {
+      "name": "nim",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "nix",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "nodejs",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "node"
+    },
+    {
+      "name": "notion",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "npm",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "nuxtjs",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "nuxt"
+    },
+    {
+      "name": "obsidian",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "ocaml",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "octave",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "opencv",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "openshift",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "openstack",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "p5js",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "perl",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "photoshop",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "ps"
+    },
+    {
+      "name": "php",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "php"
+    },
+    {
+      "name": "phpstorm",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "pinia",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "pkl",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "plan9",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "planetscale",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "pnpm",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "postgresql",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "postgres"
+    },
+    {
+      "name": "postman",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "powershell",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "pwsh"
+    },
+    {
+      "name": "premiere",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "pr"
+    },
+    {
+      "name": "prisma",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "processing",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "prometheus",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "pug",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "pycharm",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "python",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "py"
+    },
+    {
+      "name": "pytorch",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "qt",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "r",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "rabbitmq",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "rails",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "raspberrypi",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "react",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "react"
+    },
+    {
+      "name": "reactivex",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "rxjava"
+    },
+    {
+      "name": "redhat",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "redis",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "redis"
+    },
+    {
+      "name": "redux",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "regex",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "remix",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "replit",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "rider",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "robloxstudio",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "rocket",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "rollupjs",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "rollup"
+    },
+    {
+      "name": "ros",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "ruby",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "ruby"
+    },
+    {
+      "name": "rust",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "rust"
+    },
+    {
+      "name": "sass",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "scss"
+    },
+    {
+      "name": "scala",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "sc"
+    },
+    {
+      "name": "scikitlearn",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "sklearn"
+    },
+    {
+      "name": "selenium",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "sentry",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "sequelize",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "sketchup",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "solidity",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "solidjs",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "spotify",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "spring",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "sqlite",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "sqlite"
+    },
+    {
+      "name": "stackoverflow",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "styledcomponents",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "sublime",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "supabase",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "svelte",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "svelte"
+    },
+    {
+      "name": "svg",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "swift",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "swift"
+    },
+    {
+      "name": "symfony",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "tailwindcss",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "tailwind"
+    },
+    {
+      "name": "tauri",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "tensorflow",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "terraform",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "threejs",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "twitter",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "typescript",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "ts"
+    },
+    {
+      "name": "ubuntu",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "unity",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "unrealengine",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "unreal"
+    },
+    {
+      "name": "v",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "vlang"
+    },
+    {
+      "name": "vala",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "vercel",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "verilog",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "vim",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "vim"
+    },
+    {
+      "name": "visualstudio",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "vite",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "vitest",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "vscode",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "vscode"
+    },
+    {
+      "name": "vscodium",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "vuejs",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "vue"
+    },
+    {
+      "name": "vuetify",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "webassembly",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "wasm"
+    },
+    {
+      "name": "webflow",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "webpack",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "webstorm",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "windicss",
+      "hasDark": true,
+      "hasLight": true,
+      "shortName": "windi"
+    },
+    {
+      "name": "windows",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "wordpress",
+      "hasDark": false,
+      "hasLight": false,
+      "shortName": "wordpress"
+    },
+    {
+      "name": "workers",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "xd",
+      "hasDark": false,
+      "hasLight": false
+    },
+    {
+      "name": "yarn",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "yew",
+      "hasDark": true,
+      "hasLight": true
+    },
+    {
+      "name": "zig",
+      "hasDark": true,
+      "hasLight": true
+    }
+  ],
+  "shortNames": {
+    "ae": "aftereffects",
+    "ai": "illustrator",
+    "angular": "angular",
+    "au": "audition",
+    "aws": "aws",
+    "bots": "discordbots",
+    "c": "c",
+    "cf": "cloudflare",
+    "cpp": "cpp",
+    "cs": "cs",
+    "css": "css",
+    "docker": "docker",
+    "express": "expressjs",
+    "gatsbyjs": "gatsby",
+    "gcp": "gcp",
+    "ghactions": "githubactions",
+    "git": "git",
+    "go": "golang",
+    "gql": "graphql",
+    "html": "html",
+    "java": "java",
+    "js": "javascript",
+    "k8s": "kubernetes",
+    "kotlin": "kotlin",
+    "ktorio": "ktor",
+    "kubernetes": "kubernetes",
+    "laravel": "laravel",
+    "linux": "linux",
+    "md": "markdown",
+    "mongo": "mongodb",
+    "mui": "materialui",
+    "mysql": "mysql",
+    "nest": "nestjs",
+    "net": "dotnet",
+    "next": "nextjs",
+    "nginx": "nginx",
+    "node": "nodejs",
+    "nuxt": "nuxtjs",
+    "php": "php",
+    "postgres": "postgresql",
+    "pr": "premiere",
+    "ps": "photoshop",
+    "pwsh": "powershell",
+    "py": "python",
+    "react": "react",
+    "redis": "redis",
+    "rollup": "rollupjs",
+    "ruby": "ruby",
+    "rust": "rust",
+    "rxjava": "reactivex",
+    "rxjs": "reactivex",
+    "sc": "scala",
+    "scss": "sass",
+    "sklearn": "scikitlearn",
+    "sqlite": "sqlite",
+    "svelte": "svelte",
+    "swift": "swift",
+    "tailwind": "tailwindcss",
+    "ts": "typescript",
+    "unreal": "unrealengine",
+    "vim": "vim",
+    "vlang": "v",
+    "vscode": "vscode",
+    "vue": "vuejs",
+    "wasm": "webassembly",
+    "windi": "windicss",
+    "wordpress": "wordpress"
+  },
+  "themedIcons": [
+    "crystal",
+    "deno",
+    "linux",
+    "nuxtjs",
+    "cloudflare",
+    "sketchup",
+    "terraform",
+    "vscode",
+    "pinia",
+    "jenkins",
+    "lit",
+    "mastodon",
+    "spotify",
+    "coffeescript",
+    "figma",
+    "julia",
+    "laravel",
+    "autocad",
+    "d3",
+    "elixir",
+    "github",
+    "latex",
+    "mint",
+    "reactivex",
+    "windicss",
+    "windows",
+    "planetscale",
+    "firebase",
+    "idea",
+    "mysql",
+    "r",
+    "replit",
+    "svg",
+    "tailwindcss",
+    "bitbucket",
+    "flutter",
+    "githubactions",
+    "postgresql",
+    "remix",
+    "cassandra",
+    "discordjs",
+    "bevy",
+    "cmake",
+    "gitlab",
+    "powershell",
+    "pug",
+    "vuejs",
+    "blender",
+    "debian",
+    "dynamodb",
+    "pnpm",
+    "processing",
+    "raspberrypi",
+    "webstorm",
+    "bun",
+    "react",
+    "aws",
+    "clojure",
+    "gradle",
+    "materialui",
+    "neovim",
+    "spring",
+    "supabase",
+    "vercel",
+    "activitypub",
+    "haxeflixel",
+    "matlab",
+    "nextjs",
+    "opencv",
+    "sequelize",
+    "tauri",
+    "vscodium",
+    "nix",
+    "redis",
+    "vitest",
+    "pkl",
+    "actix",
+    "elasticsearch",
+    "kali",
+    "markdown",
+    "rollupjs",
+    "yarn",
+    "fediverse",
+    "gherkin",
+    "kotlin",
+    "ktor",
+    "scikitlearn",
+    "vuetify",
+    "lua",
+    "phpstorm",
+    "cypress",
+    "alpinejs",
+    "elysia",
+    "expressjs",
+    "gcp",
+    "grafana",
+    "graphql",
+    "eclipse",
+    "hibernate",
+    "maven",
+    "notion",
+    "tensorflow",
+    "visualstudio",
+    "workers",
+    "ableton",
+    "ipfs",
+    "netlify",
+    "npm",
+    "rider",
+    "threejs",
+    "plan9",
+    "azure",
+    "bash",
+    "codepen",
+    "qt",
+    "rabbitmq",
+    "stackoverflow",
+    "zig",
+    "aiscript",
+    "anaconda",
+    "androidstudio",
+    "clion",
+    "haskell",
+    "unity",
+    "vite",
+    "apple",
+    "flask",
+    "haxe",
+    "openstack",
+    "php",
+    "solidjs",
+    "sublime",
+    "nodejs",
+    "webpack",
+    "python",
+    "angular",
+    "arch",
+    "bsd",
+    "emotion",
+    "nestjs",
+    "pycharm",
+    "redhat",
+    "regex",
+    "vim",
+    "gmail",
+    "less",
+    "nim",
+    "scala",
+    "htmx",
+    "pytorch",
+    "devto",
+    "java",
+    "misskey",
+    "ros",
+    "yew",
+    "symfony",
+    "v",
+    "dart",
+    "gtk",
+    "godot",
+    "obsidian",
+    "octave",
+    "ubuntu"
+  ],
+  "total": 239
+}

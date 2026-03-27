@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Readme Stats 生成器</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #1f6feb 0%, #388bfd 100%);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+        .header h1 { font-size: 28px; margin-bottom: 8px; }
+        .header .subtitle { opacity: 0.9; font-size: 14px; }
+        .container {
+            display: flex;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+            gap: 20px;
+        }
+        .control-panel {
+            width: 320px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        /* Card Section Styles */
+        .card-section {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .card-section-header {
+            padding: 14px 16px;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #30363d;
+        }
+        .card-section-header span { font-size: 16px; }
+        .card-section-header.common { background: linear-gradient(90deg, #1f6feb20, transparent); color: #58a6ff; }
+        .card-section-header.stats { background: linear-gradient(90deg, #23863620, transparent); color: #7ee787; }
+        .card-section-header.langs { background: linear-gradient(90deg, #a371f720, transparent); color: #d2a8ff; }
+        .card-section-header.icons { background: linear-gradient(90deg, #f7816620, transparent); color: #ffa657; }
+        .card-section-body {
+            padding: 16px;
+        }
+        
+        .control-group {
+            margin-bottom: 12px;
+        }
+        .control-group:last-child { margin-bottom: 0; }
+        .control-group label {
+            display: block;
+            font-size: 12px;
+            color: #8b949e;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px 12px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #c9d1d9;
+            font-size: 13px;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #58a6ff;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: #c9d1d9;
+            cursor: pointer;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+        
+        /* Icon Selector */
+        .icon-selector { margin-top: 8px; }
+        .icon-toolbar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .icon-toolbar button {
+            flex: 1;
+            padding: 8px;
+            background: #238636;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .icon-toolbar button.secondary {
+            background: #21262d;
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+        }
+        .icon-toolbar button:hover { opacity: 0.9; }
+        
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
+            max-height: 240px;
+            overflow-y: auto;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 10px;
+        }
+        .icon-item {
+            aspect-ratio: 1;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #161b22;
+            border: 2px solid transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 8px;
+            transition: all 0.2s;
+        }
+        .icon-item:hover { background: #21262d; border-color: #30363d; }
+        .icon-item.selected { 
+            border-color: #58a6ff; 
+            background: rgba(88, 166, 255, 0.15);
+            box-shadow: 0 0 0 1px #58a6ff;
+        }
+        .icon-item img {
+            width: 28px !important;
+            height: 28px !important;
+            max-width: 28px !important;
+            max-height: 28px !important;
+            object-fit: contain;
+            display: block;
+        }
+        .selected-count {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #7ee787;
+            text-align: center;
+        }
+        
+        /* Preview Area */
+        .preview-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .preview-section {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .preview-section h2 {
+            font-size: 16px;
+            color: #f0f6fc;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #30363d;
+        }
+        .preview-box {
+            background: #0d1117;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 150px;
+            overflow: auto;
+        }
+        .preview-box img { max-width: 100%; height: auto; }
+        .code-section { margin-top: 16px; }
+        .code-section label {
+            display: block;
+            font-size: 12px;
+            color: #8b949e;
+            margin-bottom: 6px;
+        }
+        .code-block {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 12px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 12px;
+            color: #a5d6ff;
+            cursor: pointer;
+            word-break: break-all;
+            transition: all 0.2s;
+        }
+        .code-block:hover { border-color: #58a6ff; background: #1f2937; }
+        
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #238636;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        
+        @media (max-width: 900px) {
+            .container { flex-direction: column; }
+            .control-panel { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 GitHub Readme Stats 生成器</h1>
+        <p class="subtitle">选择参数，实时预览，一键复制 Markdown</p>
+    </div>
+    
+    <div class="container">
+        <!-- Left Control Panel -->
+        <div class="control-panel">
+            
+            <!-- Common Settings -->
+            <div class="card-section">
+                <div class="card-section-header common">
+                    <span>⚙️</span> 通用设置
+                </div>
+                <div class="card-section-body">
+                    <div class="control-group">
+                        <label>GitHub 用户名</label>
+                        <input type="text" id="username" value="lvtao-net">
+                    </div>
+                    <div class="control-group">
+                        <label>主题</label>
+                        <select id="theme">
+                            <option value="default">default</option>
+                            <option value="dark">dark</option>
+                            <option value="radical">radical</option>
+                            <option value="merko">merko</option>
+                            <option value="gruvbox">gruvbox</option>
+                            <option value="tokyonight">tokyonight</option>
+                            <option value="onedark">onedark</option>
+                            <option value="cobalt">cobalt</option>
+                            <option value="synthwave">synthwave</option>
+                            <option value="dracula">dracula</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats Card -->
+            <div class="card-section">
+                <div class="card-section-header stats">
+                    <span>📈</span> 统计卡片
+                </div>
+                <div class="card-section-body">
+                    <div class="control-group">
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" id="showIcons"> 显示图标</label>
+                            <label><input type="checkbox" id="hideBorder"> 隐藏边框</label>
+                            <label><input type="checkbox" id="hideRank"> 隐藏等级</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Languages Card -->
+            <div class="card-section">
+                <div class="card-section-header langs">
+                    <span>🌐</span> 语言卡片
+                </div>
+                <div class="card-section-body">
+                    <div class="control-group">
+                        <label>布局</label>
+                        <select id="langsLayout">
+                            <option value="normal">normal (列表)</option>
+                            <option value="compact">compact (紧凑)</option>
+                            <option value="donut">donut (环形)</option>
+                            <option value="donut-vertical">donut-vertical (竖环)</option>
+                            <option value="pie">pie (饼图)</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>显示语言数</label>
+                        <input type="number" id="langsCount" value="10" min="1" max="10">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skill Icons -->
+            <div class="card-section">
+                <div class="card-section-header icons">
+                    <span>🎯</span> 技能图标
+                </div>
+                <div class="card-section-body">
+                    <div class="control-group">
+                        <label>图标主题</label>
+                        <select id="iconsTheme">
+                            <option value="dark">dark (深色)</option>
+                            <option value="light">light (浅色)</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>每行数量</label>
+                        <input type="number" id="perLine" value="15" min="1" max="50">
+                    </div>
+                    <div class="control-group icon-selector">
+                        <label>选择图标</label>
+                        <div class="icon-toolbar">
+                            <button onclick="selectAllIcons()">全选</button>
+                            <button class="secondary" onclick="clearIcons()">清空</button>
+                        </div>
+                        <div class="icon-grid" id="iconGrid"></div>
+                        <div class="selected-count" id="selectedCount">已选择: 0 个</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Right Preview Area -->
+        <div class="preview-area">
+            
+            <!-- Stats Card Preview -->
+            <div class="preview-section">
+                <h2>📈 Stats Card - GitHub 统计卡片</h2>
+                <div class="preview-box">
+                    <img id="statsPreview" alt="Stats Card">
+                </div>
+                <div class="code-section">
+                    <label>点击复制 Markdown</label>
+                    <div class="code-block" id="statsMarkdown" onclick="copyCode(this)"></div>
+                </div>
+            </div>
+            
+            <!-- Languages Card Preview -->
+            <div class="preview-section">
+                <h2>🌐 Top Languages Card - 常用语言</h2>
+                <div class="preview-box">
+                    <img id="langsPreview" alt="Top Langs">
+                </div>
+                <div class="code-section">
+                    <label>点击复制 Markdown</label>
+                    <div class="code-block" id="langsMarkdown" onclick="copyCode(this)"></div>
+                </div>
+            </div>
+            
+            <!-- Skill Icons Preview -->
+            <div class="preview-section">
+                <h2>🎯 Skill Icons - 技能图标</h2>
+                <div class="preview-box">
+                    <img id="iconsPreview" alt="Skill Icons">
+                </div>
+                <div class="code-section">
+                    <label>点击复制 Markdown</label>
+                    <div class="code-block" id="iconsMarkdown" onclick="copyCode(this)"></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="toast" id="toast"></div>
+
+    <script>
+        const base = window.location.origin;
+        let allIcons = [];
+        let selectedIcons = new Set();
+        
+        async function init() {
+            await loadIcons();
+            bindEvents();
+            updateAll();
+        }
+        
+        async function loadIcons() {
+            try {
+                const response = await fetch(`${base}/api/icons/list`);
+                const data = await response.json();
+                allIcons = data.icons || [];
+            } catch (e) {
+                // Fallback if API fails
+                allIcons = ['go', 'php', 'js', 'ts', 'java', 'py', 'rust', 'cpp', 'c', 'cs', 'ruby', 'swift', 'kotlin', 'html', 'css', 'react', 'vue', 'angular', 'nodejs', 'docker', 'kubernetes', 'mysql', 'postgres', 'mongodb', 'redis', 'nginx', 'linux', 'vscode', 'vim', 'git', 'github', 'aws', 'gcp'];
+            }
+            renderIconGrid();
+        }
+        
+        function renderIconGrid() {
+            const theme = document.getElementById('iconsTheme').value;
+            const grid = document.getElementById('iconGrid');
+            const isAll = selectedIcons.has('__ALL__');
+            grid.innerHTML = allIcons.map(icon => `
+                <div class="icon-item ${isAll || selectedIcons.has(icon) ? 'selected' : ''}" onclick="toggleIcon('${icon}')" title="${icon}">
+                    <img src="${base}/api/icons?i=${icon}&theme=${theme}&perline=1" alt="${icon}" loading="lazy">
+                </div>
+            `).join('');
+        }
+        
+        function selectAllIcons() {
+            selectedIcons.clear();
+            selectedIcons.add('__ALL__');
+            renderIconGrid();
+            updateSelectedCount();
+            updateIconsPreview();
+        }
+        
+        function clearIcons() {
+            selectedIcons.clear();
+            renderIconGrid();
+            updateSelectedCount();
+            updateIconsPreview();
+        }
+        
+        function toggleIcon(icon) {
+            // Clear __ALL__ if selecting individual icon
+            if (selectedIcons.has('__ALL__')) {
+                selectedIcons.clear();
+            }
+            selectedIcons.has(icon) ? selectedIcons.delete(icon) : selectedIcons.add(icon);
+            renderIconGrid();
+            updateSelectedCount();
+            updateIconsPreview();
+        }
+        
+        function updateSelectedCount() {
+            if (selectedIcons.has('__ALL__')) {
+                document.getElementById('selectedCount').textContent = `已选择: 全部 (${allIcons.length}个)`;
+            } else {
+                document.getElementById('selectedCount').textContent = `已选择: ${selectedIcons.size} 个`;
+            }
+        }
+        
+        function bindEvents() {
+            document.querySelectorAll('input, select').forEach(el => {
+                el.addEventListener('change', () => {
+                    // Re-render icon grid when theme changes
+                    if (el.id === 'iconsTheme') {
+                        renderIconGrid();
+                    }
+                    updateAll();
+                });
+                el.addEventListener('input', debounce(updateAll, 300));
+            });
+        }
+        
+        function debounce(fn, wait) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => fn.apply(this, args), wait);
+            };
+        }
+        
+        function getParams() {
+            return {
+                username: document.getElementById('username').value || 'lvtao-net',
+                theme: document.getElementById('theme').value,
+                showIcons: document.getElementById('showIcons').checked,
+                hideBorder: document.getElementById('hideBorder').checked,
+                hideRank: document.getElementById('hideRank').checked,
+                langsLayout: document.getElementById('langsLayout').value,
+                langsCount: document.getElementById('langsCount').value,
+                iconsTheme: document.getElementById('iconsTheme').value,
+                perLine: document.getElementById('perLine').value
+            };
+        }
+        
+        function updateAll() {
+            updateStatsPreview();
+            updateLangsPreview();
+            updateIconsPreview();
+        }
+        
+        function updateStatsPreview() {
+            const p = getParams();
+            let url = `${base}/api?username=${p.username}`;
+            if (p.theme !== 'default') url += `&theme=${p.theme}`;
+            if (p.showIcons) url += `&show_icons=true`;
+            if (p.hideBorder) url += `&hide_border=true`;
+            if (p.hideRank) url += `&hide_rank=true`;
+            url += `&_=${Date.now()}`;
+            
+            document.getElementById('statsPreview').src = url;
+            document.getElementById('statsMarkdown').textContent = `![${p.username}'s GitHub Stats](${url})`;
+        }
+        
+        function updateLangsPreview() {
+            const p = getParams();
+            let url = `${base}/api/top-langs?username=${p.username}`;
+            if (p.langsLayout !== 'normal') url += `&layout=${p.langsLayout}`;
+            if (p.theme !== 'default') url += `&theme=${p.theme}`;
+            if (p.langsCount != 5) url += `&langs_count=${p.langsCount}`;
+            if (p.hideBorder) url += `&hide_border=true`;
+            url += `&_=${Date.now()}`;
+            
+            document.getElementById('langsPreview').src = url;
+            document.getElementById('langsMarkdown').textContent = `![Top Languages](${url})`;
+        }
+        
+        function updateIconsPreview() {
+            const p = getParams();
+            const iconsPreview = document.getElementById('iconsPreview');
+            
+            // Check if all icons selected
+            if (selectedIcons.has('__ALL__')) {
+                let url = `${base}/api/icons?i=all`;
+                if (p.iconsTheme !== 'dark') url += `&theme=${p.iconsTheme}`;
+                if (p.perLine != 15) url += `&perline=${p.perLine}`;
+                url += `&_=${Date.now()}`;
+                
+                iconsPreview.style.display = 'block';
+                iconsPreview.src = url;
+                document.getElementById('iconsMarkdown').textContent = `![Skills](${url})`;
+                return;
+            }
+            
+            const icons = Array.from(selectedIcons);
+            if (icons.length === 0) {
+                // 没有选中图标时隐藏图片
+                iconsPreview.style.display = 'none';
+                iconsPreview.src = '';
+                document.getElementById('iconsMarkdown').textContent = '请先选择至少一个图标';
+                return;
+            }
+            
+            let url = `${base}/api/icons?i=${icons.join(',')}`;
+            if (p.iconsTheme !== 'dark') url += `&theme=${p.iconsTheme}`;
+            if (p.perLine != 15) url += `&perline=${p.perLine}`;
+            url += `&_=${Date.now()}`;
+            
+            iconsPreview.style.display = 'block';
+            iconsPreview.src = url;
+            document.getElementById('iconsMarkdown').textContent = `![Skills](${url})`;
+        }
+        
+        function copyCode(el) {
+            const text = el.textContent;
+            if (!text || text.includes('请先选择')) return;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('toast');
+                toast.textContent = '已复制到剪贴板！';
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2000);
+            });
+        }
+        
+        // Initialize
+        init();
+    </script>
+</body>
+</html>

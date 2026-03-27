@@ -1,0 +1,76 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+
+      - name: Get version
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Build all platforms
+        run: |
+          VERSION=${{ steps.get_version.outputs.VERSION }}
+          mkdir -p build
+          
+          # Build for all platforms
+          platforms=("darwin/amd64" "darwin/arm64" "linux/amd64" "linux/arm64" "windows/amd64")
+          for platform in "${platforms[@]}"; do
+            GOOS=$(echo $platform | cut -d/ -f1)
+            GOARCH=$(echo $platform | cut -d/ -f2)
+            OUTPUT="build/github-readme-stats-${VERSION}-${GOOS}-${GOARCH}"
+            [ "$GOOS" = "windows" ] && OUTPUT="${OUTPUT}.exe"
+            
+            echo "Building for $GOOS/$GOARCH..."
+            GOOS=$GOOS GOARCH=$GOARCH go build -ldflags "-s -w" -o $OUTPUT .
+          done
+          
+          # Copy assets
+          cp -r assets build/ 2>/dev/null || true
+
+      - name: Create release packages
+        run: |
+          VERSION=${{ steps.get_version.outputs.VERSION }}
+          cd build
+          
+          for file in github-readme-stats-*; do
+            if [[ $file == *.exe ]]; then
+              platform=${file%.exe}
+              platform=${platform#github-readme-stats-${VERSION}-}
+              zip "${file%.exe}.zip" "$file"
+              rm "$file"
+            else
+              platform=${file#github-readme-stats-${VERSION}-}
+              tar -czf "${file}.tar.gz" "$file"
+              rm "$file"
+            fi
+          done
+          
+          # Package assets separately
+          tar -czf "assets-${VERSION}.tar.gz" assets/
+          
+          ls -la
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/*
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
