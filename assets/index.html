@@ -354,6 +354,10 @@
                             <button onclick="selectAllIcons()">全选</button>
                             <button class="secondary" onclick="clearIcons()">清空</button>
                         </div>
+                        <div class="search-box" style="margin-bottom: 10px; display: flex; gap: 8px;">
+                            <input type="text" id="iconSearch" placeholder="搜索图标..." style="flex: 1;">
+                            <button class="secondary" onclick="clearIconSearch()" style="width: auto; padding: 8px 12px;">清空</button>
+                        </div>
                         <div class="icon-grid" id="iconGrid"></div>
                         <div class="selected-count" id="selectedCount">已选择: 0 个</div>
                     </div>
@@ -432,12 +436,43 @@
         function renderIconGrid() {
             const theme = document.getElementById('iconsTheme').value;
             const grid = document.getElementById('iconGrid');
+            const searchTerm = document.getElementById('iconSearch').value.toLowerCase().trim();
             const isAll = selectedIcons.has('__ALL__');
-            grid.innerHTML = allIcons.map(icon => `
+            
+            // Filter icons based on search term
+            let filteredIcons = allIcons;
+            if (searchTerm) {
+                filteredIcons = allIcons.filter(icon => icon.toLowerCase().includes(searchTerm));
+            }
+            
+            // Show no results message
+            if (filteredIcons.length === 0) {
+                grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: #8b949e; padding: 20px;">没有找到匹配的图标</div>`;
+                document.getElementById('selectedCount').innerHTML = `已选择: ${selectedIcons.has('__ALL__') ? '全部' : selectedIcons.size} 个 | 筛选: 0 个`;
+                return;
+            }
+            
+            grid.innerHTML = filteredIcons.map(icon => `
                 <div class="icon-item ${isAll || selectedIcons.has(icon) ? 'selected' : ''}" onclick="toggleIcon('${icon}')" title="${icon}">
                     <img src="${base}/api/icons?i=${icon}&theme=${theme}&perline=1" alt="${icon}" loading="lazy">
                 </div>
             `).join('');
+            
+            // Show filtered count
+            if (searchTerm) {
+                document.getElementById('selectedCount').innerHTML = `已选择: ${selectedIcons.has('__ALL__') ? '全部' : selectedIcons.size} 个 | 筛选: ${filteredIcons.length} 个`;
+            }
+        }
+        
+        function clearIconSearch() {
+            document.getElementById('iconSearch').value = '';
+            renderIconGrid();
+            // Restore normal count display
+            if (selectedIcons.has('__ALL__')) {
+                document.getElementById('selectedCount').textContent = `已选择: 全部 (${allIcons.length}个)`;
+            } else {
+                document.getElementById('selectedCount').textContent = `已选择: ${selectedIcons.size} 个`;
+            }
         }
         
         function selectAllIcons() {
@@ -485,6 +520,14 @@
                 });
                 el.addEventListener('input', debounce(updateAll, 300));
             });
+            
+            // Icon search box - real-time filter
+            const searchBox = document.getElementById('iconSearch');
+            if (searchBox) {
+                searchBox.addEventListener('input', debounce(() => {
+                    renderIconGrid();
+                }, 150));
+            }
         }
         
         function debounce(fn, wait) {
